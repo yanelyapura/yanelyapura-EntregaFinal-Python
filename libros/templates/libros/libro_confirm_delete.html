@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4 text-center">
+    <h2 class="mb-4">¿Estás seguro de que querés eliminar este libro?</h2>
+    <p class="mb-4">
+        <strong>{{ object.titulo }}</strong> de autor <em>{{ object.autor.nombre }}</em>, género <em>{{ object.genero.nombre }}</em>, publicado el <em>{{ object.fecha_publicacion }}</em>.
+    </p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a href="{% url 'libro_list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

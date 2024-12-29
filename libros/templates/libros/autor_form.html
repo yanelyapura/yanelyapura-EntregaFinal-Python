@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4">{{ form.instance.id|default:"Agregar Autor" }}</h2>
+    <form method="post" class="row g-3">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="id_nombre" class="form-label">Nombre</label>
+            {{ form.nombre }}
+        </div>
+        <div class="col-md-6">
+            <label for="id_nacionalidad" class="form-label">Nacionalidad</label>
+            {{ form.nacionalidad }}
+        </div>
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a href="{% url 'autor_list' %}" class="btn btn-secondary">Volver</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
